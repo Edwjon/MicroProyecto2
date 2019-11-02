@@ -1,0 +1,44 @@
+
+<button routerLink="/home" routerLinkActive="active">Back</button>
+
+<div class="contenedor-general">
+        <div class="pelicula-imagen">
+            <img src="{{peliculas[id].Images[1]}}">
+            <img src="{{peliculas[id].Images[2]}}">    
+        </div>
+    
+
+        <div class="contenedor-info">
+    
+                <span class="titulo">{{peliculas[id].Title}}</span>
+
+                <span class="texto">Plot: {{peliculas[id].Plot}}</span>
+        
+                <span class="texto">Año: {{peliculas[id].Year}}</span>
+        
+                <span class="texto">Duración: {{peliculas[id].Runtime}}</span>
+        
+                <div class="texto">
+                    Generos:
+                    <span *ngFor="let genero of peliculas[id].Genre; index as i">
+                        {{peliculas[id].Genre[i]}},
+                    </span>
+                </div>
+        
+                <span class="texto">Director: {{peliculas[id].Director}}</span>
+                
+                <span class="texto">Actores: {{peliculas[id].Actors}}</span>
+
+                <span class="texto">Premios: {{peliculas[id].Awards}}</span>
+        
+                
+
+                <span class="texto" *ngIf="peliculas[id].ComingSoon, else elseBlock">Proximamente</span>
+
+                <ng-template #elseBlock>
+                    <button>Reservar</button>
+                </ng-template>
+
+        </div>
+    
+</div>

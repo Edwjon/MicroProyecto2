@@ -1,0 +1,24 @@
+
+<div class="contenedor-general" *ngFor="let pelicula of peliculas">
+    <div class="pelicula-imagen">
+        <img src="{{pelicula.Images[0]}}">      
+    </div>
+
+    <div class="contenedor-info">
+        <span class="titulo">{{pelicula.Title}}</span>
+
+        <div class="genero">
+            Generos:
+            <span *ngFor="let genero of pelicula.Genre; index as i">
+                {{pelicula.Genre[i]}},
+            </span>
+        </div>
+
+        <span class="genero">Lenguajes: {{pelicula.Language}}</span>
+
+        <button [routerLink]="['/detail' , pelicula.Id]" routerLinkActive="active">Detalles</button>
+        
+    </div>
+
+</div>
+
